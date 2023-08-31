@@ -12,7 +12,7 @@ const taskBody = document.getElementById('tableBody');
 let tasks = [];
 
 
-// eventlistner on add task button (Add task functionality)
+// event listner on add task button (Add task functionality)
 addTaskBtn.addEventListener('click', () => {
 
     const taskID = parseInt(taskIDInput.value);
@@ -51,14 +51,17 @@ addTaskBtn.addEventListener('click', () => {
     const task = {
         id: taskID,
         name: taskName,
-        startDate,
-        endDate,
-        status
+        startDate:startDate,
+        endDate:endDate,
+        status:status,
+        // subtask:{
+        //     id:taskID+Math.random(),
+        // }
     };
 
     tasks.push(task);
     updateTaskList();
-    alert('Task added successfully!');
+    // alert('Task added successfully!');
     console.log(tasks);
 
     // Clear the form
@@ -72,7 +75,7 @@ function isTaskIDTaken(taskID) {
 }
 
 
-// Update tasklist in html
+// Update task list in html
 function updateTaskList() {
     const taskID = taskIDInput.value;
     const taskName= taskNameInput.value;
@@ -103,23 +106,35 @@ function createTableRow(taskID, taskName, startDate, endDate, status) {
 
 // Delete functionality
 // const deleteTask = document.getElementsByClassName('deleteTask');
-// deleteTask.addEventListener('click', () => {
-//     if (deleteTask.target && deleteTask.target.tagName === "BUTTON" && deleteTask.target.innerText === "deleteTask") {
+// taskBody.addEventListener('click', (event) => {
+//     if (event.target && event.target.tagName === "BUTTON" && event.target.innerText === "deleteTask") {
 //         const rowToDelete = event.target.closest("tr");
 //         if (rowToDelete) {
 //             rowToDelete.remove();
 //         }
 //     }
-
+//
 //     console.log(tasks);
 // });
 
 
 taskTable.addEventListener("click", (event) => {
-    if (event.target.classList.contains("deleteTask")) {
-      event.target.parentElement.remove();
-    }
-  });
+    const rowToDelete = event.target.closest("tr");
+        if (rowToDelete) {
+            rowToDelete.remove();
+        }
+
+
+
+    console.log("delete button clicked")
+    console.log(tasks)
+
+    tasks.map(function (task) {
+        delete task.id;
+        return tasks;
+    });
+
+});
 
 
 
