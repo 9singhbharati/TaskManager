@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Manager</title>
+
+    <!-- favicon -->
+    <link rel="icon" type="image/x-icon" href="./assets/favicon.ico">
+
+    <!-- stylesheet -->
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+
+    <!-- nav bar -->
+    <nav class="flex">
+        <h1>Task <span>Manager</span></h1>
+        <span class="flex"><input type="text" placeholder="Search Your Task Here..." id="searchTask"><button id="searchBtn">Search</button></span>
+    </nav>
+    
+    <!-- form -->
+    <form onsubmit="return false" class="flex">
+        <input type="number" placeholder="Task ID" id="taskID">
+        <input type="text" placeholder="Task name" id="taskName">
+        <input type="datetime-local" placeholder="Start Date" id="startDate" class="date">
+        <input type="datetime-local" placeholder="End Date" id="endDate" class="date">
+        <select id="status">
+            <option value="" disabled selected>Select status</option>
+            <option value="In-Progress">In-Progress</option>
+            <option value="Completed">Completed</option>
+            <option value="Due-Passed">Due-Passed</option>
+            <option value="Canceled">Canceled</option>
+        </select>
+        <button id="addTaskBtn">Add Task</button>
+    </form>
+
+    <!-- table -->
+    <table id="taskTable">
+        <tr id="parentHeader">
+            <th>Task ID</th>
+            <th>Task Name</th>
+            <th>Start Date</th>
+            <th>End Date</th>
+            <th>Status</th>
+            <th>Add Sub Task</th>
+            <th>Edit</th>
+            <th>Delete</th>
+            <!-- <th> <button id="addSubTaskBtn">Add Sub-Task</button></th>
+            <th> <button id="editTaskBtn">Edit Task</button></th>
+            <th> <button id="editTaskBtn">Delete Task</button></th> -->
+        </tr>
+        
+        <tbody id="tableBody">
+            <tr>
+                
+            </tr>
+        </tbody>
+    </table>
+
+    <!-- script  -->
+    <script src="./scripts/script.js"></script>
+</body>
+</html>

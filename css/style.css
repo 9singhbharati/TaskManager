@@ -1,0 +1,157 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;700;800&family=Red+Hat+Display:wght@400;500;600;800&family=Roboto:wght@400;700&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-text-color:#000000;
+    --primary-button:#282A3A;
+    --secondary-text-color:#735F32;
+    --secondary-text-color-light:#ebe6dd;
+    --secondary-button:#C69749;
+}
+
+body{
+    font-family: 'Red Hat Display', sans-serif;
+    max-width: 1300px;
+    margin: 0 3rem;
+    /* align-items: center;
+    justify-content: center; */
+    /* flex-direction:column; */
+    color: var(--primary-text-color);
+}
+
+.flex {
+    display: flex;
+    align-items: center;
+}
+
+/* nav */
+
+nav {
+    justify-content: space-between;
+    line-height: 7rem;
+}
+
+nav #searchTask {
+    height: 2rem;
+    width: 15rem;
+    padding: 1rem;
+    border-radius: 0.5rem;
+}
+
+nav #searchBtn{
+    padding:0.5rem 1rem;
+    border-radius: 0.5rem;
+    text-align: center;
+    border: none;
+    font-size: 1rem;
+    font-weight: bold;
+    background-color: var(--primary-button);
+    color: var(--secondary-text-color-light);
+    transition: 0.2s ease-out;
+}
+
+nav #searchBtn:hover{
+    cursor: pointer;
+    color: var(--primary-text-color);
+    background-color: var(--secondary-button);
+}
+
+
+
+/* form */
+
+form{
+    justify-content: space-between;
+    margin-bottom: 5rem;
+}
+
+form input {
+    height: 2rem;
+    width: 10rem;
+    padding: 1rem;
+    border-radius: 0.5rem;
+}
+
+form #taskID {
+    width: 5.9rem;
+}
+
+form #taskName{
+    width: 15rem;
+}
+
+form .date {
+    width: 11.5rem;
+    border-radius: 0.5rem;
+
+}
+
+form button {
+    /* height: 2rem; */
+    padding:0.5rem 1rem;
+    border-radius: 0.5rem;
+    text-align: center;
+    border: none;
+    font-size: 1rem;
+    font-weight: bold;
+    background-color: var(--primary-button);
+    color: var(--secondary-text-color-light);
+    transition: 0.2s ease-out;
+}
+
+form button:hover{
+    cursor: pointer;
+    color: var(--primary-text-color);
+    background-color: var(--secondary-button);
+}
+
+form select {
+    /* height: 2rem; */
+    border-radius: 0.5rem;
+    padding: 0.5rem;
+}
+
+option[value=""][disabled] {
+    display: none;
+  }
+
+
+/* table */
+table{
+    width: 100%;
+    border: 1px solid var(--primary-button);
+    border-spacing: 1rem 1rem;
+    border-color: var(--primary-button);
+
+}
+
+table tr{
+    border-color: var(--primary-button);
+    border-collapse: collapse;
+    text-align: center;
+    width: 100%;
+}
+
+table tr button {
+    padding:0.5rem 1rem;
+    border-radius: 0.5rem;
+    text-align: center;
+    border: none;
+    font-size: 1rem;
+    font-weight: bold;
+    background-color: var(--primary-button);
+    color: var(--secondary-text-color-light);
+    transition: 0.2s ease-out;
+}
+
+table tr button:hover {
+    cursor: pointer;
+    color: var(--primary-text-color);
+    background-color: var(--secondary-button);
+}
+
