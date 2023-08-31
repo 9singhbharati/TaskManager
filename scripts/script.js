@@ -3,6 +3,7 @@ const taskNameInput = document.getElementById('taskName');
 const startDateInput = document.getElementById('startDate');
 const endDateInput = document.getElementById('endDate');
 const statusSelect = document.getElementById('status');
+const parentTaskForm = document.getElementById("parentTaskForm");
 const addTaskBtn = document.getElementById('addTaskBtn');
 // const taskList = document.getElementById('taskList');
 const taskTable = document.getElementById("taskTable");
@@ -59,6 +60,10 @@ addTaskBtn.addEventListener('click', () => {
     updateTaskList();
     alert('Task added successfully!');
     console.log(tasks);
+
+    // Clear the form
+    parentTaskForm.reset();
+
 });
 
 // to check if task id is already taken
@@ -97,16 +102,24 @@ function createTableRow(taskID, taskName, startDate, endDate, status) {
 
 
 // Delete functionality
-taskBody.addEventListener("click", function(event) {
-    if (event.target && event.target.tagName === "BUTTON" && event.target.innerText === "deleteTask") {
-        const rowToDelete = event.target.closest("tr");
-        if (rowToDelete) {
-            rowToDelete.remove();
-        }
-    }
+// const deleteTask = document.getElementsByClassName('deleteTask');
+// deleteTask.addEventListener('click', () => {
+//     if (deleteTask.target && deleteTask.target.tagName === "BUTTON" && deleteTask.target.innerText === "deleteTask") {
+//         const rowToDelete = event.target.closest("tr");
+//         if (rowToDelete) {
+//             rowToDelete.remove();
+//         }
+//     }
 
-    console.log(tasks);
-});
+//     console.log(tasks);
+// });
+
+
+taskTable.addEventListener("click", (event) => {
+    if (event.target.classList.contains("deleteTask")) {
+      event.target.parentElement.remove();
+    }
+  });
 
 
 
