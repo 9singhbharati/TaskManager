@@ -11,6 +11,64 @@ const taskBody = document.getElementById('tableBody');
 
 let tasks = [];
 
+//show table data
+function showTable(tasks){
+    taskTable.innerHTML = `<tr>
+                <td>Task ID</td>
+                <td>Task Name</td>
+                <td>Start Date</td>
+                <td>End Date</td>
+                <td>Status</td>
+                <th>Add Sub Task</th>
+                <th>Edit</th>
+                <th>Delete</th>
+<!--                <td><button class="addSubTask">Add Sub Task</button></td>-->
+<!--                <td><button class="editTask">Edit</button></td>-->
+<!--                <td><button class="deleteTask">Delete</button></td>-->
+        </tr>`;
+
+    //if array is empty
+    if(tasks == ''){
+        document.getElementById('error').innerHTML = `<span>Not Found</span>`
+    }else{
+        document.getElementById('error').innerHTML = "";
+
+        for(let i = 0; i < tasks.length; i++){
+            taskBody.innerHTML += `
+                <td>${tasks[i].taskID}</td>
+                <td>${tasks[i].taskName}</td>
+                <td>${tasks[i].startDate}</td>
+                <td>${tasks[i].endDate}</td>
+                <td>${tasks[i].status}</td>
+                <td><button class="addSubTask">Add Sub Task</button></td>
+                <td><button class="editTask">Edit</button></td>
+                <td><button class="deleteTask">Delete</button></td>`
+        }
+    }
+}
+
+showTable(tasks);
+
+
+// search function
+
+var filteredData = [];
+
+document.getElementById('searchTask').addEventListener("keyup", function (){
+
+    var search = this.value.toLocaleLowerCase();
+
+    filteredData = tasks.filter(function (val){
+        if(val.id.toString().includes(search) || val.name.includes(search) || val.startDate.toString().includes(search) || val.endDate.toString().includes(search) || val.status.includes(search)){
+            let newObj = {id : val.id, name:val.name, startDate:val.startDate, endDate: val.endDate, status: val.status};
+            return newObj;
+        }
+    })
+
+    showTable(filteredData);
+});
+
+
 
 // event listner on add task button (Add task functionality)
 addTaskBtn.addEventListener('click', () => {
@@ -122,6 +180,7 @@ taskTable.addEventListener("click", (event) => {
     const rowToDelete = event.target.closest("tr");
         if (rowToDelete) {
             rowToDelete.remove();
+
         }
 
 
