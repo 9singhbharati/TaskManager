@@ -110,6 +110,26 @@ form button:hover{
     background-color: var(--secondary-button);
 }
 
+form button #updateTaskBtn{
+    /* display: none;
+    visibility: hidden; */
+    padding:0.5rem 1rem;
+    border-radius: 0.5rem;
+    text-align: center;
+    border: none;
+    font-size: 1rem;
+    font-weight: bold;
+    background-color: var(--primary-button);
+    color: var(--secondary-text-color-light);
+    transition: 0.2s ease-out;
+}
+
+form button #updateTaskBtn:hover{
+    cursor: pointer;
+    color: var(--primary-text-color);
+    background-color: var(--secondary-button);
+}
+
 form select {
     /* height: 2rem; */
     border-radius: 0.5rem;
